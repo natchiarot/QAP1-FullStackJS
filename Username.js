@@ -1,16 +1,39 @@
+// Importing the necessary functions from the 'unique-username-generator' library.
 const {
   generateFromEmail,
   generateUsername,
+  uniqueUsernameGenerator,
 } = require("unique-username-generator");
 
-// Generating a username from email, also add four random digits to it.
+// Generating a username from email, with additional random digits.
 const usernameOne = generateFromEmail("natalina.chiarot@keyin.com", 4);
-console.log(usernameOne);
+console.log("\nUsername One: ", usernameOne);
 
-// Completely random username without any parameters.
+// Generating a random username without any parameters.
 const usernameTwo = generateUsername();
-console.log(usernameTwo);
+console.log("\nUsername Two: ", usernameTwo);
 
-// With all parameters (a seperator, random digits, a max length and characters to be included).
+// Generating a username with specified parameters (a seperator, random digits, a max length and characters).
 const usernameThree = generateUsername("-", 4, 20, "third");
-console.log(usernameThree);
+console.log("\nUsername Three: ", usernameThree);
+
+// Custom dictionary example.
+const customColors = [
+  "Red robin",
+  "Orange orchid",
+  "Yellow yarn",
+  "Green grapes",
+  "Blue berries",
+  "Purple plum",
+];
+
+// Configuration for uniqueUsernameGenerator using a custom dictionary.
+const customUsername = {
+  dictionaries: [customColors],
+  style: "upperCase",
+  randomDigits: 2,
+};
+
+// Generating a unique username with the custom configuration.
+const customGeneratedUsername = uniqueUsernameGenerator(customUsername);
+console.log("\nCustom Generated Username: ", customGeneratedUsername);
